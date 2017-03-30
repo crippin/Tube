@@ -18,7 +18,13 @@ class User implements Serializable {
 	boolean accountExpired
 	boolean accountLocked
 	boolean passwordExpired
-
+	
+	static hasMany = [
+		comment: Comment,
+		video: Video, 
+		playlist: Playlist
+	]
+	
 	User(String username, String password, String realname) {
 		this()
 		this.realname = realname
@@ -47,7 +53,6 @@ class User implements Serializable {
 	static transients = ['springSecurityService']
 
 	static constraints = {
-		realname blank: false
 		username blank: false, unique: true
 		password blank: false
 	}

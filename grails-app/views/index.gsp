@@ -51,6 +51,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="file">
 					<a href="upload.html">Upload</a>
 				</div>	
+				<sec:ifLoggedIn>
+				<div class="file">
+					<a><sec:loggedInUserInfo field="username" /></a>
+				</div>
+				    <g:link controller="/logout">Logout</g:link>
+    			</sec:ifLoggedIn>
 				<sec:ifNotLoggedIn>
 				<div class="signin">
 					<a href="#small-dialog2" class="play-icon popup-with-zoom-anim">Sign Up</a>
@@ -223,12 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</div>
 				</div>
 				</sec:ifNotLoggedIn>
-				<sec:ifLoggedIn>
-				<div class="file">
-					<a><sec:loggedInUserInfo field="username" /></a>
-				</div>
-				    <g:link controller="/logout">Logout</g:link>
-    			</sec:ifLoggedIn>
+				
 					
 				
 				<div class="clearfix"> </div>
