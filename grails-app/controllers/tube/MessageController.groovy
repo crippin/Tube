@@ -8,25 +8,25 @@ import grails.plugin.springsecurity.annotation.*
 
 @Transactional(readOnly = true)
 @Secured(['permitAll'])
-class CommentController {
+class MessageController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Comment.list(params), model:[commentInstanceCount: Comment.count()]
+        respond Message.list(params), model:[commentInstanceCount: Message.count()]
     }
 
-    def show(Comment commentInstance) {
+    def show(Message commentInstance) {
         respond commentInstance
     }
 
     def create() {
-        respond new Comment(params)
+        respond new Message(params)
     }
 
     @Transactional
-    def save(Comment commentInstance) {
+    def save(Message commentInstance) {
         if (commentInstance == null) {
             notFound()
             return
@@ -48,12 +48,12 @@ class CommentController {
         }
     }
 
-    def edit(Comment commentInstance) {
+    def edit(Message commentInstance) {
         respond commentInstance
     }
 
     @Transactional
-    def update(Comment commentInstance) {
+    def update(Message commentInstance) {
         if (commentInstance == null) {
             notFound()
             return
@@ -76,7 +76,7 @@ class CommentController {
     }
 
     @Transactional
-    def delete(Comment commentInstance) {
+    def delete(Message commentInstance) {
 
         if (commentInstance == null) {
             notFound()

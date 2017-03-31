@@ -1,10 +1,12 @@
 package tube
 
-class Comment {
+class Message {
 	
 	String message
-	User user
+	Person person
 	Date dateCreated
+	
+	static belongsTo = Video
 	
     static constraints = {
 		message blank:false

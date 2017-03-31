@@ -1,4 +1,4 @@
-<%@ page import="tube.Comment" %>
+<%@ page import="tube.Message" %>
 
 
 

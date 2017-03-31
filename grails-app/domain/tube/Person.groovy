@@ -5,7 +5,7 @@ import groovy.transform.ToString
 
 @EqualsAndHashCode(includes='username')
 @ToString(includes='username', includeNames=true, includePackage=false)
-class User implements Serializable {
+class Person implements Serializable {
 
 	private static final long serialVersionUID = 1
 
@@ -20,12 +20,12 @@ class User implements Serializable {
 	boolean passwordExpired
 	
 	static hasMany = [
-		comment: Comment,
-		video: Video, 
+		comment: Message,
+		video: Video,
 		playlist: Playlist
 	]
-	
-	User(String username, String password, String realname) {
+
+	Person(String username, String password,String realname) {
 		this()
 		this.realname = realname
 		this.username = username
@@ -33,7 +33,7 @@ class User implements Serializable {
 	}
 
 	Set<Authority> getAuthorities() {
-		UserAuthority.findAllByUser(this)*.authority
+		PersonAuthority.findAllByPerson(this)*.authority
 	}
 
 	def beforeInsert() {

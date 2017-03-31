@@ -4,9 +4,11 @@ class Playlist {
 	
 	String title
 	int length
-	User user
+	Person Person
 	
 	static hasMany = [video: Video]
+	
+	static belongsTo = Person
 	
     static constraints = {
     }

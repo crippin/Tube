@@ -124,8 +124,8 @@ grails.plugin.springsecurity.logout.postOnly = true
 grails.plugin.springsecurity.logout.afterLogoutUrl = "/"
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
 // Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'tube.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'tube.UserAuthority'
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'tube.Person'
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'tube.PersonAuthority'
 grails.plugin.springsecurity.authority.className = 'tube.Authority'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                ['permitAll'],

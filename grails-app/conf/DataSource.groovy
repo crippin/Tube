@@ -1,15 +1,16 @@
 dataSource {
     pooled = true
     jmxExport = true
-    driverClassName = "com.mysql.cj.jdbc.Driver"
-	dialect = "org.hibernate.dialect.MySQL5InnoDBDialect"
-    username = "root"
-    password = ""
-	url = "jdbc:mysql://localhost:3306/tubedb"
+    driverClassName = "oracle.jdbc.OracleDriver"
+	dialect = "org.hibernate.dialect.Oracle10gDialect"
+    username = "GRAILS"
+    password = "grails"
+	url = "jdbc:oracle:thin:@localhost:1521:xe"
 }
 hibernate {
     cache.use_second_level_cache = true
     cache.use_query_cache = false
+	hibernate.jdbc.use_get_generated_keys = true
 //    cache.region.factory_class = 'net.sf.ehcache.hibernate.EhCacheRegionFactory' // Hibernate 3
     cache.region.factory_class = 'org.hibernate.cache.ehcache.EhCacheRegionFactory' // Hibernate 4
     singleSession = true // configure OSIV singleSession mode
@@ -20,7 +21,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "create" // one of 'create', 'create-drop', 'update', 'validate', ''
         }
     }
     test {

@@ -16,7 +16,7 @@
 		<g:message code="video.comment.label" default="Comment" />
 		
 	</label>
-	<g:select name="comment" from="${tube.Comment.list()}" multiple="multiple" optionKey="id" size="5" value="${videoInstance?.comment*.id}" class="many-to-many"/>
+	<g:select name="comment" from="${tube.Message.list()}" multiple="multiple" optionKey="id" size="5" value="${videoInstance?.comment*.id}" class="many-to-many"/>
 
 </div>
 
