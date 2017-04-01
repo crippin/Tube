@@ -119,9 +119,8 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
-
-grails.plugin.springsecurity.logout.postOnly = true
-grails.plugin.springsecurity.logout.afterLogoutUrl = "/"
+grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.logout.afterLogoutUrl = '/'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'tube.Person'

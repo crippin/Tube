@@ -54,11 +54,13 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</div>	
 				<sec:ifLoggedIn>
 				<div class="file">
-					<a><sec:loggedInUserInfo field="username" /></a>
+					<a id="loggedin"><sec:loggedInUserInfo field="username" /></a>
 				</div>
 				<div class="file">
-					<g:remoteLink controller="logout"><g:message code="logout"/></g:remoteLink>
+					<g:remoteLink id="logoutrefresh" controller="logout"><g:message  code="logout"/></g:remoteLink>
+    			<asset:javascript src="refresh.js"/>
     			</sec:ifLoggedIn>
+    			
 				<sec:ifNotLoggedIn>
 				<div class="signin">
 					<a href="#small-dialog2" class="play-icon popup-with-zoom-anim">Sign Up</a>
