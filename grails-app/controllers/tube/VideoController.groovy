@@ -10,14 +10,19 @@ class VideoController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
+	def upload() {
+		
+	}
+	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Video.list(params), model:[videoInstanceCount: Video.count()]
     }
 
-	def uploadFile(){
-		def fileData =params.file
-		File file=new File(params.file.name)
+	def uploadFile(){ //ha a /web-app/videoFiles mappa nem létezik, akkor nem akar mûködni
+		def fileData = params.file
+		def webrootDir = servletContext.getRealPath("/")
+		File file=new File(webrootDir, "videoFiles/" + fileData.getProperties().originalFilename)  
 		  if(file.exists())
 			 fileData.transferTo(file)
 		  else{

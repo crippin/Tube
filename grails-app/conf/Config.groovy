@@ -119,7 +119,13 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 }
-grails.plugin.springsecurity.logout.postOnly = false
+grails.plugin.springsecurity.rejectIfNoRule = false                          //ezek sérülékenységi pontok,de megkönnyítik a fejlesztést 
+grails.plugin.springsecurity.fii.rejectPublicInvocations = false             //így egyszerûbb tesztelni a controllereket
+
+
+grails.plugin.springsecurity.logout.postOnly = false  //ez eredetileg true volt, bár nem hiszem, hogy zavarna bármit
+
+
 grails.plugin.springsecurity.logout.afterLogoutUrl = '/'
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/'
 // Added by the Spring Security Core plugin:

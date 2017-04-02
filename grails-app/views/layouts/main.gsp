@@ -50,7 +50,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			</div>
 			<div class="header-top-right">
 				<div class="file">
-					<a href="upload.html">Upload</a>
+					<g:link controller="video" action="upload">Upload</g:link>
 				</div>	
 				<sec:ifLoggedIn>
 				<div class="file">
