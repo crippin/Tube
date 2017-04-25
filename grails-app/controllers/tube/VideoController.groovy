@@ -31,4 +31,8 @@ class VideoController {
 		  }
 		  render "Uploaded Successfully"
 	 }
+	
+	def play(){
+		
+	}
 }

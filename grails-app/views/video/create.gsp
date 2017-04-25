@@ -1,3 +1,5 @@
+<%@ page import="tube.Video" %>
+
 <!DOCTYPE html>
 <html>
 	<head>
