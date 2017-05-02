@@ -1,2 +1,3 @@
 .project
 target/stacktrace.log
+*.mp4

@@ -24,7 +24,7 @@
 			<thead>
 					<tr>
 					
-						<th><g:message code="video.author.label" default="Author" /></th>
+						<th><g:message code="video.person.label" default="Author" /></th>
 					
 						<g:sortableColumn property="description" title="${message(code: 'video.description.label', default: 'Description')}" />
 					
@@ -34,6 +34,8 @@
 					
 						<g:sortableColumn property="title" title="${message(code: 'video.title.label', default: 'Title')}" />
 					
+						<g:sortableColumn property="category" title="${message(code: 'video.category.label', default: 'Category')}" />
+					
 						<g:sortableColumn property="uploadDate" title="${message(code: 'video.uploadDate.label', default: 'Upload Date')}" />
 					
 					</tr>
@@ -42,7 +44,7 @@
 				<g:each in="${videoInstanceList}" status="i" var="videoInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${videoInstance.id}">${fieldValue(bean: videoInstance, field: "author")}</g:link></td>
+						<td><g:link action="show" id="${videoInstance.id}">${fieldValue(bean: videoInstance, field: "person")}</g:link></td>
 					
 						<td>${fieldValue(bean: videoInstance, field: "description")}</td>
 					

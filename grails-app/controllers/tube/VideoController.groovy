@@ -46,4 +46,8 @@ class VideoController {
 	def play(){
 		
 	}
+	
+	def show(Video videoInstance) {
+		respond videoInstance
+	}
 }

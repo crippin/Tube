@@ -4,6 +4,7 @@
 		<meta name="layout" content="main">
 		<g:set var="entityName" value="${message(code: 'video.label', default: 'Video')}" />
 		<title><g:message code="default.show.label" args="[entityName]" /></title>
+		
 	</head>
 	<body>
 		<a href="#show-video" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
@@ -21,11 +22,11 @@
 			</g:if>
 			<ol class="property-list video">
 			
-				<g:if test="${videoInstance?.author}">
+				<g:if test="${videoInstance?.person}">
 				<li class="fieldcontain">
-					<span id="author-label" class="property-label"><g:message code="video.author.label" default="Author" /></span>
+					<span id="person-label" class="property-label"><g:message code="video.person.label" default="Author" /></span>
 					
-						<span class="property-value" aria-labelledby="author-label"><g:link controller="user" action="show" id="${videoInstance?.author?.id}">${videoInstance?.author?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="person-label"><g:link controller="user" action="show" id="${videoInstance?.person?.id}">${videoInstance?.person?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -94,5 +95,9 @@
 				</fieldset>
 			</g:form>
 		</div>
+		<video width="320" height="240" controls autoplay>
+		<source src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4" type="video/mp4">
+		Your browser does not support the video tag.
+		</video>
 	</body>
 </html>
