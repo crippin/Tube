@@ -7,6 +7,9 @@
 		
 	</head>
 	<body>
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<div class="main-grids">
+			<div class="top-grids">
 		<a href="#show-video" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -99,5 +102,8 @@
 		<source src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4" type="video/mp4">
 		Your browser does not support the video tag.
 		</video>
+					</div>
+		</div>
+	</div>
 	</body>
 </html>
