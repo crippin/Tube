@@ -5,8 +5,8 @@ package tube
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(CommentController)
-@Mock(Comment)
+@TestFor(MessageController)
+@Mock(Message)
 class CommentControllerSpec extends Specification {
 
     def populateValidParams(params) {
@@ -38,7 +38,7 @@ class CommentControllerSpec extends Specification {
         when:"The save action is executed with an invalid instance"
             request.contentType = FORM_CONTENT_TYPE
             request.method = 'POST'
-            def comment = new Comment()
+            def comment = new Message()
             comment.validate()
             controller.save(comment)
 
@@ -49,14 +49,14 @@ class CommentControllerSpec extends Specification {
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            comment = new Comment(params)
+            comment = new Message(params)
 
             controller.save(comment)
 
         then:"A redirect is issued to the show action"
             response.redirectedUrl == '/comment/show/1'
             controller.flash.message != null
-            Comment.count() == 1
+            Message.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -68,7 +68,7 @@ class CommentControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def comment = new Comment(params)
+            def comment = new Message(params)
             controller.show(comment)
 
         then:"A model is populated containing the domain instance"
@@ -84,7 +84,7 @@ class CommentControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def comment = new Comment(params)
+            def comment = new Message(params)
             controller.edit(comment)
 
         then:"A model is populated containing the domain instance"
@@ -104,7 +104,7 @@ class CommentControllerSpec extends Specification {
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def comment = new Comment()
+            def comment = new Message()
             comment.validate()
             controller.update(comment)
 
@@ -115,7 +115,7 @@ class CommentControllerSpec extends Specification {
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            comment = new Comment(params).save(flush: true)
+            comment = new Message(params).save(flush: true)
             controller.update(comment)
 
         then:"A redirect is issues to the show action"
@@ -136,16 +136,16 @@ class CommentControllerSpec extends Specification {
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def comment = new Comment(params).save(flush: true)
+            def comment = new Message(params).save(flush: true)
 
         then:"It exists"
-            Comment.count() == 1
+            Message.count() == 1
 
         when:"The domain instance is passed to the delete action"
             controller.delete(comment)
 
         then:"The instance is deleted"
-            Comment.count() == 0
+            Message.count() == 0
             response.redirectedUrl == '/comment/index'
             flash.message != null
     }
