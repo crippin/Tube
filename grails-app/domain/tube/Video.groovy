@@ -7,13 +7,13 @@ class Video {
 	String title
 	Person person
 	String filename
-	int lenght = 0
+	float lenght
 	String description
 	Date uploadDate 
 	String category
 	
 	
-	Video(String title, Person uploader, String filename, String category, String description){
+	Video(String title, Person uploader, String filename, String category, String description, String duration){
 		this()
 		//this.person = uploader
 		
@@ -23,6 +23,8 @@ class Video {
 		this.filename = filename
 		this.category = category
 		this.description = description
+		this.lenght = Float.parseFloat(duration);
+		System.out.println(duration)
 	}
 	
 	static hasMany = [comment: Message, playlist: Playlist]

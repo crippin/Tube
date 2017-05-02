@@ -8,6 +8,10 @@
 		<title><g:message code="default.list.label" args="[entityName]" /></title>
 	</head>
 	<body>
+	
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<div class="main-grids">
+			<div class="top-grids">
 		<a href="#list-video" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
 		<div class="nav" role="navigation">
 			<ul>
@@ -62,5 +66,8 @@
 				<g:paginate total="${videoInstanceCount ?: 0}" />
 			</div>
 		</div>
+					</div>
+		</div>
+	</div>
 	</body>
 </html>
