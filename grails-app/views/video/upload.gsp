@@ -3,12 +3,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 <meta name="layout" content="main" />
+
+<script type="text/javascript">
+var objectUrl;    
+
+$(document).ready(function(){    
+	$("#file").change(function(e){ 
+		console.log("asd");   
+	var file = e.currentTarget.files[0];    
+	objectUrl = URL.createObjectURL(file);    
+	document.getElementById('audio').setAttribute("src", objectUrl);    
+	});})   
+</script>
 </head>
 <body>
 
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<div class="main-grids">
 			<div class="top-grids">
+			<audio id="audio"></audio>
 				<form enctype="multipart/form-data" id="demoform" method="POST"
 					name="demoform">
 					<table>
@@ -31,32 +44,38 @@
 							<td colspan="2"><input class="upload" type="submit" value="Upload"></td>
 						</tr>
 					</table>
-					 	<input class="upload" id="uploader" type="hidden" value="${sec.loggedInUserInfo(field: 'username')}">
+					 	
 					<script type="text/javascript">
-						$('#demoform').submit(function(e) {
+					$('#demoform').submit(function(e) {
 
-							e.preventDefault();
-							var file = $('#file').val()
-							var jForm = new FormData();
-							jForm.append("file", $('#file').get(0).files[0]);
-							jForm.append("title", $('#title').val());
-							jForm.append("category", $('#category').val());
-							jForm.append("description", $('#description').val());
-							jForm.append("uploader", $('#uploader').val());
-							$.ajax({
-								url : "uploadFile",
-								type : "POST",
-								data : jForm,
-								mimeType : "multipart/form-data",
-								contentType : false,
-								cache : false,
-								processData : false,
-								success : function(data) {
-									alert("elérés: /Tube/videoFiles/" + file);
-								}
-							});
-						})
-					</script>
+						e.preventDefault();
+						var file = $('#file').val()
+						var jForm = new FormData();
+						jForm.append("file", $('#file').get(0).files[0]);
+						jForm.append("title", $('#title').val());
+						jForm.append("description", $('#description').val());
+						jForm.append("category", $('#category').val());
+						
+						
+						var duration =0;  //store duration
+						
+						duration = document.getElementById("audio").duration;
+						alert(duration);
+						jForm.append("duration", duration);
+						
+						$.ajax({
+							url : "uploadFile",
+							type : "POST",
+							data : jForm,
+							mimeType : "multipart/form-data",
+							contentType : false,
+							cache : false,
+							processData : false,
+							success : function(data) {
+								alert("asd");
+							}
+						});
+					})</script>
 				</form>
 			</div>
 		</div>
