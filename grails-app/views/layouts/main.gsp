@@ -39,7 +39,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="index.html"><h1><asset:image src="logo.png" alt=""/></h1></a>
+          <a class="navbar-brand" href="${createLink(uri: '/')}"><h1><asset:image src="logo.png" alt=""/></h1></a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
 			<div class="top-search">
