@@ -9,6 +9,7 @@ class BootStrap {
 			def mi = new Person(username: 'mi', realname: 'Miklós István', 
 				password: 'pw',
 				enabled: true).save(flush: true)
+			
 			PersonAuthority.create(mi, userRole, true)
 			assert Person.count() == 1
 			assert Authority.count() == 1

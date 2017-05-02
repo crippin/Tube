@@ -13,12 +13,25 @@
 					name="demoform">
 					<table>
 						<tr>
-							<td><input accept=".mp4" class="upload" id="file" name="file"
+							<td colspan="2"><input accept=".mp4" class="upload" id="file" name="file"
 						type="file"></td>
-							<td><input class="upload" type="submit" value="Upload"></td>
+						<tr>
+						<td>Title:</td>
+							<td><input class="upload" id="title" name="title" type="text"></td>
+							</tr>
+							<tr>
+							<td>Category:</td>
+							<td><input class="upload" id="category" name="category" type="text"></td>
+							</tr>
+							<tr>
+							<td>Description:</td>
+							<td><input class="upload" id="description" name="description" type="text"></td>
+							</tr>
+							<tr>
+							<td colspan="2"><input class="upload" type="submit" value="Upload"></td>
 						</tr>
 					</table>
-					 
+					 	<input class="upload" id="uploader" type="hidden" value="${sec.loggedInUserInfo(field: 'username')}">
 					<script type="text/javascript">
 						$('#demoform').submit(function(e) {
 
@@ -26,6 +39,10 @@
 							var file = $('#file').val()
 							var jForm = new FormData();
 							jForm.append("file", $('#file').get(0).files[0]);
+							jForm.append("title", $('#title').val());
+							jForm.append("category", $('#category').val());
+							jForm.append("description", $('#description').val());
+							jForm.append("uploader", $('#uploader').val());
 							$.ajax({
 								url : "uploadFile",
 								type : "POST",

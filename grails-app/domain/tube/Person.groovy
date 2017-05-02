@@ -24,7 +24,7 @@ class Person implements Serializable {
 		video: Video,
 		playlist: Playlist
 	]
-
+	
 	Person(String username, String password,String realname) {
 		this()
 		this.realname = realname
