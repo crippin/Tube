@@ -45,9 +45,9 @@ class VideoController {
 	}
 	
 	def comment(Video videoInstance){
-		respond videoInstance
 		def per = springSecurityService.currentUser
 		def message = new Message(message: params.message,person: per, video: videoInstance).save failOnError: true
+		def commentList = currentVideoComments(videoInstance)
 		render message
 	}
 	
@@ -56,7 +56,18 @@ class VideoController {
 	}
 	
 	def show(Video videoInstance) {
-		respond videoInstance	
-		//render(template:'/message/show')
+		
+		def commentList = currentVideoComments(videoInstance)
+		[ commentList: commentList]
+		respond videoInstance, [model: [videoInstance: videoInstance,commentList: commentList]]
+	}
+	
+	private currentVideoComments(Video videoInstance) {
+		def query = Message.whereAny {
+			video { id == videoInstance.id }
+		}.order 'dateCreated', 'asc'
+		def comments = query.list()
+		
+		comments
 	}
 }

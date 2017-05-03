@@ -58,20 +58,15 @@
 							</div>
 						</div>
 						<div class="media-grids">
-						<g:each in="${messageInstanceList}" status="i" var="messageInstance">
+						<g:each in="${commentList}" var="comment">
 							<div class="media">
-								<h5>${fieldValue(bean: messageInstance, field: "person")}sadasd</h5>
-								<div class="media-left">
-									<a href="#">
-										
-									</a>
-								</div>
+								<h5>${comment?.person.username}</h5>
 								<div class="media-body">
-									<p>${fieldValue(bean: messageInstance, field: "message")}sdadas</p>
-									<span>View all posts by :<a href="#"> Admin </a></span>
+									<p>${comment?.message}</p>
 								</div>
 							</div>
 						</g:each>
+						<div class="clearfix"> </div>
 						</div>
 					</div>
 				</div>
