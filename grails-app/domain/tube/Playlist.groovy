@@ -10,7 +10,7 @@ class Playlist {
 	
 	static belongsTo = Person
 	
-	Playlist(String title,Person person, float length){
+	Playlist(String title, float length, Person person){
 		this.title = title
 		this.person = person
 		this.length = length

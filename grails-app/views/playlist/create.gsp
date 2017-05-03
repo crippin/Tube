@@ -25,12 +25,12 @@
 				</g:eachError>
 			</ul>
 			</g:hasErrors>
-			<g:form url="[resource:playlistInstance, action:'save']" >
+			<g:form url="[resource:playlistInstance, action:'keszit']" >
 				<fieldset class="form">
-					<g:render template="form"/>
+					<g:render template="ezt"/>
 				</fieldset>
 				<fieldset class="buttons">
-					<g:submitButton name="create" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
+					<g:submitButton name="keszit" class="save" value="${message(code: 'default.button.create.label', default: 'Create')}" />
 				</fieldset>
 			</g:form>
 		</div>

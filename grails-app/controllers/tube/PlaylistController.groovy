@@ -20,7 +20,17 @@ class PlaylistController {
     def show(Playlist playlistInstance) {
         respond playlistInstance
     }
-
+	
+	def keszit(){
+		def per = springSecurityService.currentUser
+		println per
+		def pl = new Playlist(title: params.title,lenght: params.lenght,video: params.video)
+		pl.person = per
+		pl.save flush: true
+		respond pl
+	}
+	
+	
     def create() {
 		def per = springSecurityService.currentUser
 		println params.video

@@ -46,6 +46,7 @@ class VideoController {
 	
 	def comment(Video videoInstance){
 		def per = springSecurityService.currentUser
+		println per.id
 		def message = new Message(message: params.message,person: per, video: videoInstance).save failOnError: true
 		def commentList = currentVideoComments(videoInstance)
 		render message
