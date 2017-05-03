@@ -2769,38 +2769,71 @@ background: url(../images/social.png) no-repeat 0px 0px;
 }
 
 .uploadLabel {
-	color: white;
+	color: black;
+	font-size: 14px;
 
 }
 #file{
 	padding: 4px 6px 6px 6px;
 	margin-bottom: 1px;
-	width: 255px;
+	width: 380px;
+	background: #3B4142;
+	color: white;
 }
 #title{
 	padding: 4px 6px 6px 4px;
 	margin-bottom: 1px;
-	width: 200px;
+	width: 300px;
+	font-size: 12px;
+	background: #3B4142;
+	color: white;
 }
 #category{
 	padding: 4px 6px 6px 4px;
 	margin-bottom: 1px;
-	width: 200px;
+	width: 300px;
+	font-size: 12px;
+	background: #3B4142;
+	color: white;
 }
 #description{
 	padding: 4px 6px 6px 4px;
-	width: 200px;
+	width: 300px;
 	height: 200px;
     border: none;
     text-align: justify;
 	vertical-align: top;
+	font-size: 12px;
+	background: #3B4142;
+	color: white;
 }
-#uploadButton{
-	padding: 4px 6px 6px 4px;
-	width: 60px;
-	margin-top: 2px;
-	
-}
+
 #uploadButtonTd{
 	text-align: center;
+}
+
+#uploadButton {
+    outline: none;
+    font-style: normal;
+    padding: 4px 20px 4px 20px;
+    background: #21DEEF;
+    font-size: 14px;
+    color: #fff;
+	margin-top: 15px;
+    border: none;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -o-border-radius: 3px;
+    -ms-border-radius: 3px;
+    transition: .5s all;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    -o-transition: .5s all;
+    -ms-transition: .5s all;
+}
+#uploadButton:hover{
+    text-decoration: none;
+    color: #272C2E;
+    background: #E2E2E2;
 }

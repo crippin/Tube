@@ -49,7 +49,7 @@ class VideoController {
 		println per.id
 		def message = new Message(message: params.message,person: per, video: videoInstance).save failOnError: true
 		def commentList = currentVideoComments(videoInstance)
-		render message
+		redirect(uri:"/video/show/" + videoInstance.id)
 	}
 	
 	def play(){

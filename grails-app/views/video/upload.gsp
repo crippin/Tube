@@ -98,7 +98,9 @@ $(document).ready(function(){
 				</form>
 				</div>
 				</div>
+				<div class="clearfix"> </div>
 				</div>
-		</div>
+				<div class="main-grids">
+			<div class="top-grids">
 </body>
 </html>
