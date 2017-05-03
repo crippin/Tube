@@ -2,21 +2,21 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: commentInstance, field: 'author', 'error')} required">
-	<label for="author">
-		<g:message code="comment.author.label" default="Author" />
+<div class="fieldcontain ${hasErrors(bean: messageInstance, field: 'message', 'error')} required">
+	<label for="message">
+		<g:message code="message.message.label" default="Message" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="author" name="author.id" from="${tube.User.list()}" optionKey="id" required="" value="${commentInstance?.author?.id}" class="many-to-one"/>
+	<g:textField name="message" required="" value="${messageInstance?.message}"/>
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: commentInstance, field: 'message', 'error')} required">
-	<label for="message">
-		<g:message code="comment.message.label" default="Message" />
+<div class="fieldcontain ${hasErrors(bean: messageInstance, field: 'person', 'error')} required">
+	<label for="person">
+		<g:message code="message.person.label" default="Person" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:textField name="message" required="" value="${commentInstance?.message}"/>
+	<g:select id="person" name="person.id" from="${tube.Person.list()}" optionKey="id" required="" value="${messageInstance?.person?.id}" class="many-to-one"/>
 
 </div>
 

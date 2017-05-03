@@ -27,7 +27,7 @@ class CommentControllerSpec extends Specification {
 
     void "Test the create action returns the correct model"() {
         when:"The create action is executed"
-            controller.create()
+            controller._create()
 
         then:"The model is correctly created"
             model.commentInstance!= null
@@ -61,7 +61,7 @@ class CommentControllerSpec extends Specification {
 
     void "Test that the show action returns the correct model"() {
         when:"The show action is executed with a null domain"
-            controller.show(null)
+            controller._show(null)
 
         then:"A 404 error is returned"
             response.status == 404
@@ -69,7 +69,7 @@ class CommentControllerSpec extends Specification {
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
             def comment = new Message(params)
-            controller.show(comment)
+            controller._show(comment)
 
         then:"A model is populated containing the domain instance"
             model.commentInstance == comment

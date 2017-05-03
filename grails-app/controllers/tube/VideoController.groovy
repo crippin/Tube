@@ -44,11 +44,19 @@ class VideoController {
 		render "Uploaded Successfully"
 	}
 	
+	def comment(Video videoInstance){
+		respond videoInstance
+		def per = springSecurityService.currentUser
+		def message = new Message(message: params.message,person: per, video: videoInstance).save failOnError: true
+		render message
+	}
+	
 	def play(){
 		
 	}
 	
 	def show(Video videoInstance) {
-		respond videoInstance
+		respond videoInstance	
+		//render(template:'/message/show')
 	}
 }

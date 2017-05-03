@@ -46,10 +46,10 @@
 	
 <ul class="one-to-many">
 <g:each in="${personInstance?.comment?}" var="c">
-    <li><g:link controller="message" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
+    <li><g:link controller="message" action="_show" id="${c.id}">${c?.encodeAsHTML()}</g:link></li>
 </g:each>
 <li class="add">
-<g:link controller="message" action="create" params="['person.id': personInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'message.label', default: 'Message')])}</g:link>
+<g:link controller="message" action="_create" params="['person.id': personInstance?.id]">${message(code: 'default.add.label', args: [message(code: 'message.label', default: 'Message')])}</g:link>
 </li>
 </ul>
 

@@ -36,7 +36,7 @@
 					<span id="comment-label" class="property-label"><g:message code="video.comment.label" default="Comment" /></span>
 					
 						<g:each in="${videoInstance.comment}" var="c">
-						<span class="property-value" aria-labelledby="comment-label"><g:link controller="message" action="show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="comment-label"><g:link controller="message" action="_show" id="${c.id}">${c?.encodeAsHTML()}</g:link></span>
 						</g:each>
 					
 				</li>
