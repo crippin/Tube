@@ -23,8 +23,8 @@ class Video {
 		this.filename = filename
 		this.category = category
 		this.description = description
-		this.lenght = Float.parseFloat(duration);
-		System.out.println(duration)
+		this.lenght = Float.parseFloat(duration)
+	
 	}
 	
 	static hasMany = [comment: Message, playlist: Playlist]
