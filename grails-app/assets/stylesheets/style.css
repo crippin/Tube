@@ -2762,3 +2762,45 @@ background: url(../images/social.png) no-repeat 0px 0px;
 		padding: .52em 1em .52em 3em;
 	}
 }
+
+#demoform{
+	margin-left: 40px;
+
+}
+
+.uploadLabel {
+	color: white;
+
+}
+#file{
+	padding: 4px 6px 6px 6px;
+	margin-bottom: 1px;
+	width: 255px;
+}
+#title{
+	padding: 4px 6px 6px 4px;
+	margin-bottom: 1px;
+	width: 200px;
+}
+#category{
+	padding: 4px 6px 6px 4px;
+	margin-bottom: 1px;
+	width: 200px;
+}
+#description{
+	padding: 4px 6px 6px 4px;
+	width: 200px;
+	height: 200px;
+    border: none;
+    text-align: justify;
+	vertical-align: top;
+}
+#uploadButton{
+	padding: 4px 6px 6px 4px;
+	width: 60px;
+	margin-top: 2px;
+	
+}
+#uploadButtonTd{
+	text-align: center;
+}

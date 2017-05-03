@@ -18,30 +18,48 @@ $(document).ready(function(){
 </head>
 <body>
 
-	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-		<div class="main-grids">
-			<div class="top-grids">
+		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+			<div class="show-top-grids">
+				<div class="col-sm-8 single-left">
 			<audio id="audio"></audio>
+				<div id="box">
 				<form enctype="multipart/form-data" id="demoform" method="POST"
 					name="demoform">
 					<table>
-						<tr>
-							<td colspan="2"><input accept=".mp4" class="upload" id="file" name="file"
-						type="file"></td>
-						<tr>
-						<td>Title:</td>
+							<tr>
+								<td colspan="2"><input accept=".mp4" class="upload"
+									id="file" name="file" type="file"></td>
+								<tr>
+						<td><div class="uploadLabel">Title:</div></td>
 							<td><input class="upload" id="title" name="title" type="text"></td>
 							</tr>
 							<tr>
-							<td>Category:</td>
-							<td><input class="upload" id="category" name="category" type="text"></td>
+							<td><div class="uploadLabel">Category:</div></td>
+							<td>
+								<select name="category" class="upload" id="category">
+									<option value="Autos & Vehicles">Autos & Vehicles</option>
+									<option value="Comedy">Comedy</option>
+									<option value="Education">Education</option>
+									<option value="Film & Animation">Film & Animation</option>
+									<option value="Gaming">Gaming</option>
+									<option value="Howto & Style">Howto & Style</option>
+									<option value="News & Politics">News & Politics</option>
+									<option value="Nonprofits & Activism">Nonprofits & Activism</option>
+									<option value="People & Blogs">People & Blogs</option>
+									<option value="Pets & Animals">Pets & Animals</option>
+									<option value="Science & Technology">Science & Technology</option>
+									<option value="Sports">Sports</option>
+									<option value="Travel & Events">Travel & Events</option>
+								</select>
+							</td>
 							</tr>
 							<tr>
-							<td>Description:</td>
-							<td><input class="upload" id="description" name="description" type="text"></td>
+							<td><div class="uploadLabel">Description:</div></td>
+							<td>
+							<textarea class="upload" id="description" name="description" required></textarea></td>
 							</tr>
 							<tr>
-							<td colspan="2"><input class="upload" type="submit" value="Upload"></td>
+							<td colspan="2" id="uploadButtonTd"><input class="upload" id="uploadButton" type="submit" value="Upload"></td>
 						</tr>
 					</table>
 					 	
@@ -60,7 +78,7 @@ $(document).ready(function(){
 						var duration =0;  //store duration
 						
 						duration = document.getElementById("audio").duration;
-						alert(duration);
+						
 						jForm.append("duration", duration);
 						
 						$.ajax({
@@ -72,13 +90,15 @@ $(document).ready(function(){
 							cache : false,
 							processData : false,
 							success : function(data) {
-								alert("asd");
+								console.log(data);
+								window.location.href ="/Tube/video/show/" + data;
 							}
 						});
 					})</script>
 				</form>
-			</div>
+				</div>
+				</div>
+				</div>
 		</div>
-	</div>
 </body>
 </html>

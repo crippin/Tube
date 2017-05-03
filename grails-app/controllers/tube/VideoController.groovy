@@ -22,7 +22,7 @@ class VideoController {
     }
 
 	def uploadFile(){ //ha a /web-app/videoFiles mappa nem létezik, akkor nem akar mûködni
-		def fileData = params.file
+				def fileData = params.file
 		def fileTitle = params.title
 		def fileCategory = params.category
 		def fileDescription = params.description
@@ -41,7 +41,7 @@ class VideoController {
 			file.createNewFile()
 			fileData.transferTo(file)
 		}
-		render "Uploaded Successfully"
+		render name
 	}
 	
 	def comment(Video videoInstance){
