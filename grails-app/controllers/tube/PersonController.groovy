@@ -3,11 +3,13 @@ package tube
 
 
 import static org.springframework.http.HttpStatus.*
+import grails.plugin.springsecurity.SpringSecurityService;
 import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class PersonController {
 
+	SpringSecurityService springSecurityService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -16,7 +18,15 @@ class PersonController {
     }
 
     def show(Person personInstance) {
-        respond personInstance
+		def auth = false
+		if(springSecurityService.currentUser){
+			def per = springSecurityService.currentUser.id
+			if(personInstance.id == per){
+				auth = true
+			}
+		}
+		[auth: auth]
+        respond personInstance, model:[auth:auth]
     }
 
     def create() {

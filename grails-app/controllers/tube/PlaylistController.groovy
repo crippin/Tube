@@ -23,8 +23,10 @@ class PlaylistController {
 	
 	def keszit(){
 		def per = springSecurityService.currentUser
-		println per
-		def pl = new Playlist(title: params.title,lenght: params.lenght,video: params.video)
+		def pl = new Playlist(title: params.title,length: 0,video: params.video)
+		params.video.each {
+			pl.length += Video.get(it).lenght
+		}
 		pl.person = per
 		pl.save flush: true
 		respond pl
@@ -33,7 +35,6 @@ class PlaylistController {
 	
     def create() {
 		def per = springSecurityService.currentUser
-		println params.video
         respond new Playlist(person : per, video: params.video, title: params.title)
 		
     }

@@ -11,6 +11,7 @@ class Video {
 	String description
 	Date uploadDate 
 	String category
+	int click = 0
 	
 	
 	Video(String title, Person uploader, String filename, String category, String description, String duration){

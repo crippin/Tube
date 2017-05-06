@@ -57,10 +57,12 @@ class VideoController {
 	}
 	
 	def show(Video videoInstance) {
-		
+		videoInstance.click += 1
+		videoInstance.save(flush: true)
 		def commentList = currentVideoComments(videoInstance)
-		[ commentList: commentList]
-		respond videoInstance, [model: [videoInstance: videoInstance,commentList: commentList]]
+		def sameCategoryList = sameCategory(videoInstance)
+		[ commentList: commentList, sameCategoryList: sameCategoryList]
+		respond videoInstance, [model: [videoInstance: videoInstance,commentList: commentList, sameCategoryList: sameCategoryList]]
 	}
 	
 	private currentVideoComments(Video videoInstance) {
@@ -70,5 +72,12 @@ class VideoController {
 		def comments = query.list()
 		
 		comments
+	}
+	
+	private sameCategory(Video videoInstance){
+		def sameCategoryList = Video.executeQuery("from Video where category = ?",[videoInstance.category])
+		sameCategoryList.remove(videoInstance)
+		sameCategoryList.sort{new Random()}
+		sameCategoryList
 	}
 }
