@@ -1,7 +1,6 @@
 package tube
 
 
-
 import static org.springframework.http.HttpStatus.*
 import grails.plugin.springsecurity.SpringSecurityService
 import grails.transaction.Transactional
@@ -18,7 +17,29 @@ class VideoController {
 	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Video.list(params), model:[videoInstanceCount: Video.count()]
+		def comedyList = getCategoryList("Comedy")
+		def autoList = getCategoryList("Autos & Vehicles")
+		def educationList = getCategoryList("Education")
+		def filmList = getCategoryList("Film & Animation")
+		def gameList = getCategoryList("Gaming")
+		def howToList = getCategoryList("Howto & Style")
+		def newsList = getCategoryList("News & Politics")
+		def nonprofitsList = getCategoryList("Nonprofits & Activism")
+		def petList = getCategoryList("Pets & Animals")
+		def blogList = getCategoryList("People & Blogs")
+		def scienceList = getCategoryList("Science & Technology")
+		def sportsList = getCategoryList("Sports")
+		def travelList = getCategoryList("Travel & Events")
+		
+		[comedyList: comedyList, autoList: autoList, educationList: educationList,filmList: filmList,
+			gameList:gameList,howToList: howToList,newsList: newsList,nonprofitsList:nonprofitsList,
+			petList: petList,blogList: blogList,scienceList: scienceList,sportsList: sportsList,
+			travelList: travelList]
+		
+        respond Video.list(params).reverse(), model:[videoInstanceCount: Video.count(),comedyList: comedyList, autoList: autoList, educationList: educationList,filmList: filmList,
+			gameList:gameList,howToList: howToList,newsList: newsList,nonprofitsList:nonprofitsList,
+			petList: petList,blogList: blogList,scienceList: scienceList,sportsList: sportsList,
+			travelList: travelList]
     }
 
 	def uploadFile(){ //ha a /web-app/videoFiles mappa nem létezik, akkor nem akar mûködni
@@ -52,9 +73,12 @@ class VideoController {
 		redirect(uri:"/video/show/" + videoInstance.id)
 	}
 	
-	def play(){
+	def search = {
+		def query = Video.executeQuery("from Video where tiltle like ?",[params.search])
 		
+		respond query
 	}
+
 	
 	def show(Video videoInstance) {
 		videoInstance.click += 1
@@ -79,5 +103,12 @@ class VideoController {
 		sameCategoryList.remove(videoInstance)
 		sameCategoryList.sort{new Random()}
 		sameCategoryList
+	}
+	
+	private getCategoryList(String category){
+		def getCategoryList = Video.executeQuery("from Video where category = ?",[category])
+		getCategoryList.sort{new Random()}
+		
+		getCategoryList
 	}
 }
