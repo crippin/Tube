@@ -18,7 +18,15 @@ class PlaylistController {
     }
 
     def show(Playlist playlistInstance) {
-        respond playlistInstance
+		def auth = false
+		if(springSecurityService.currentUser){
+			def per = springSecurityService.currentUser.id
+			if(playlistInstance.person.id == per){
+				auth = true
+			}
+		}
+		[auth: auth]
+		respond playlistInstance, model:[auth:auth]
     }
 	
 	def keszit(){

@@ -107,11 +107,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				<li><a href="shows.html" class="user-icon"><span
 						class="glyphicon glyphicon-home glyphicon-blackboard"
 						aria-hidden="true"></span>TV Shows</a></li>
-				<li><a href="history.html" class="sub-icon"><span
-						class="glyphicon glyphicon-home glyphicon-hourglass"
-						aria-hidden="true"></span>History</a></li>
+				<li><a href="#" class="menu0"><span
+						class="glyphicon glyphicon-home glyphicon-blackboard " aria-hidden="true"></span>Playlists<span
+						class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
+				<ul class="cl-effect-3">
+					<li><a href="${createLink(uri: '/playlist/create')}">Create new Playlist</a></li>
+					<li><a href="${createLink(uri: '/playlist/')}">List All</a></li>
+				</ul>
+				<!-- script-for-menu -->
+				<script>
+					$("li a.menu0").click(function() {
+						$("ul.cl-effect-3").slideToggle(300, function() {
+							// Animation complete.
+						});
+					});
+				</script>
 				<li><a href="#" class="menu1"><span
-						class="glyphicon glyphicon-film" aria-hidden="true"></span>Movies<span
+						class="glyphicon glyphicon-film" aria-hidden="true"></span>Categories<span
 						class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 				<ul class="cl-effect-2">
 					<li><a href="movies.html">English</a></li>

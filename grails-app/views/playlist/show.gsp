@@ -1,73 +1,91 @@
 
-<%@ page import="tube.Playlist" %>
+<%@ page import="tube.Playlist"%>
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta name="layout" content="main">
-		<g:set var="entityName" value="${message(code: 'playlist.label', default: 'Playlist')}" />
-		<title><g:message code="default.show.label" args="[entityName]" /></title>
-	</head>
-	<body>
-		<a href="#show-playlist" class="skip" tabindex="-1"><g:message code="default.link.skip.label" default="Skip to content&hellip;"/></a>
-		<div class="nav" role="navigation">
-			<ul>
-				<li><a class="home" href="${createLink(uri: '/')}"><g:message code="default.home.label"/></a></li>
-				<li><g:link class="list" action="index"><g:message code="default.list.label" args="[entityName]" /></g:link></li>
-				<li><g:link class="create" action="create"><g:message code="default.new.label" args="[entityName]" /></g:link></li>
-			</ul>
-		</div>
-		<div id="show-playlist" class="content scaffold-show" role="main">
-			<h1><g:message code="default.show.label" args="[entityName]" /></h1>
-			<g:if test="${flash.message}">
-			<div class="message" role="status">${flash.message}</div>
-			</g:if>
-			<ol class="property-list playlist">
-			
-				<g:if test="${playlistInstance?.length}">
-				<li class="fieldcontain">
-					<span id="length-label" class="property-label"><g:message code="playlist.length.label" default="Length" /></span>
-					
-						<span class="property-value" aria-labelledby="length-label"><g:fieldValue bean="${playlistInstance}" field="length"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${playlistInstance?.person}">
-				<li class="fieldcontain">
-					<span id="person-label" class="property-label"><g:message code="playlist.person.label" default="Person" /></span>
-					
-						<span class="property-value" aria-labelledby="person-label"><g:link controller="person" action="show" id="${playlistInstance?.person?.id}">${playlistInstance?.person?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${playlistInstance?.title}">
-				<li class="fieldcontain">
-					<span id="title-label" class="property-label"><g:message code="playlist.title.label" default="Title" /></span>
-					
-						<span class="property-value" aria-labelledby="title-label"><g:fieldValue bean="${playlistInstance}" field="title"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${playlistInstance?.video}">
-				<li class="fieldcontain">
-					<span id="video-label" class="property-label"><g:message code="playlist.video.label" default="Video" /></span>
-					
-						<g:each in="${playlistInstance.video}" var="v">
-						<span class="property-value" aria-labelledby="video-label"><g:link controller="video" action="show" id="${v.id}">${v?.encodeAsHTML()}</g:link></span>
+<head>
+<meta name="layout" content="main">
+<g:set var="entityName"
+	value="${message(code: 'playlist.label', default: 'Playlist')}" />
+<title><g:message code="default.show.label" args="[entityName]" /></title>
+</head>
+<body>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<div class="show-top-grids">
+			<div class="col-sm-8 single-left">
+				<div class="song">
+					<div class="song-info">
+						<h3>
+							Playlist:
+							${playlistInstance?.title}
+						</h3>
+					</div>
+					<ul class="list-group">
+						<li class="list-group-item-info"><h4>
+								Duration:&nbsp;${playlistInstance?.length}
+								sec
+							</h4></li>
+						<li class="list-group-item-info"><h4>
+								Created by:
+								<g:link controller="person" action="show"
+									id="${playlistInstance?.person.id}">
+									${playlistInstance?.person.username}
+								</g:link>
+							</h4></li>
+						<g:if test="${auth}">
+							<g:form url="[resource:playlistInstance, action:'delete']"
+								method="DELETE">
+								<fieldset class="buttons">
+									<g:link class="edit" action="edit"
+										resource="${playlistInstance}">
+										<g:message code="default.button.edit.label" default="Edit" />
+									</g:link>
+									<g:actionSubmit class="delete" action="delete"
+										value="${message(code: 'default.button.delete.label', default: 'Delete')}"
+										onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
+								</fieldset>
+							</g:form>
+						</g:if>
+					</ul>
+					<div class="recommended-info">
+						<h3>Videos:</h3>
+					</div>
+					<div
+						class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+						<g:each in="${playlistInstance?.video}" status="i"
+							var="videoInstance">
+							<div
+								class="col-md-4 resent-grid recommended-grid slider-top-grids">
+								<div class="resent-grid-img recommended-grid-img">
+									<video width="100" height="80">
+										<source id="thumb"
+											src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
+											type="video/mp4">
+									</video>
+								</div>
+								<div class="resent-grid-info recommended-grid-info">
+									<h3>
+										<g:link controller="video" action="show" id="${videoInstance.id}">
+											${fieldValue(bean: videoInstance, field: "title")}
+										</g:link>
+									</h3>
+									<ul>
+										<li><p class="author author-info">
+												<a class="author"> ${fieldValue(bean: videoInstance, field: "person.username")}
+												</a>
+											</p></li>
+										<li class="right-list"><p class="views views-info">
+												${fieldValue(bean: videoInstance, field: "category")}
+											</p></li>
+									</ul>
+								</div>
+							</div>
 						</g:each>
-					
-				</li>
-				</g:if>
-			
-			</ol>
-			<g:form url="[resource:playlistInstance, action:'delete']" method="DELETE">
-				<fieldset class="buttons">
-					<g:link class="edit" action="edit" resource="${playlistInstance}"><g:message code="default.button.edit.label" default="Edit" /></g:link>
-					<g:actionSubmit class="delete" action="delete" value="${message(code: 'default.button.delete.label', default: 'Delete')}" onclick="return confirm('${message(code: 'default.button.delete.confirm.message', default: 'Are you sure?')}');" />
-				</fieldset>
-			</g:form>
+					</div>
+				</div>
+			</div>
+			<div class="clearfix"></div>
 		</div>
-	</body>
+		<div class="main-grids">
+			<div class="top-grids">
+</body>
 </html>

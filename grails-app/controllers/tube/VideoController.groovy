@@ -73,13 +73,6 @@ class VideoController {
 		redirect(uri:"/video/show/" + videoInstance.id)
 	}
 	
-	def search = {
-		def query = Video.executeQuery("from Video where tiltle like ?",[params.search])
-		
-		respond query
-	}
-
-	
 	def show(Video videoInstance) {
 		videoInstance.click += 1
 		videoInstance.save(flush: true)
