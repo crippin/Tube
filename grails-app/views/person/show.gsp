@@ -42,8 +42,8 @@
 						<h4>Comments:</h4>
 						<ul class=list-group">
 							<g:each in="${personInstance.comment}" var="c">
-								<li class="list-group-item"><g:link controller="message"
-										action="_show" id="${c.id}">
+								<li class="list-group-item"><g:link controller="video"
+										action="show" id="${c.video.id}#comment${c.id}">
 										${c.video.title?.encodeAsHTML()}
 									</g:link></li>
 							</g:each>

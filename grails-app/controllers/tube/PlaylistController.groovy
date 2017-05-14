@@ -37,7 +37,7 @@ class PlaylistController {
 		}
 		pl.person = per
 		pl.save flush: true
-		respond pl
+		redirect(uri:"/playlist/show/" + pl.id)
 	}
 	
 	
