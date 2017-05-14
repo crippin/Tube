@@ -109,7 +109,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						class="glyphicon glyphicon-film glyphicon-hourglass"
 						aria-hidden="true"></span>Toplist
 				</a></li>
-				<li><a href="${createLink(uri: '/video/toplist')}"> <span
+				<li><a href="${createLink(uri: '/person/halloffame')}"> <span
 						class="glyphicon glyphicon-film glyphicon-king"
 						aria-hidden="true"></span>Hall of Fame
 				</a></li>
