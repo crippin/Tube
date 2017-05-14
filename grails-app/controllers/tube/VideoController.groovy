@@ -43,7 +43,7 @@ class VideoController {
     }
 
 	def uploadFile(){ //ha a /web-app/videoFiles mappa nem létezik, akkor nem akar mûködni
-				def fileData = params.file
+		def fileData = params.file
 		def fileTitle = params.title
 		def fileCategory = params.category
 		def fileDescription = params.description
@@ -80,6 +80,34 @@ class VideoController {
 		def sameCategoryList = sameCategory(videoInstance)
 		[ commentList: commentList, sameCategoryList: sameCategoryList]
 		respond videoInstance, [model: [videoInstance: videoInstance,commentList: commentList, sameCategoryList: sameCategoryList]]
+	}
+	
+	
+	def toplist(){
+		String day = new Date().format("dd");
+		String month = new Date().format("MM");
+		def videoListTopDay = Video.executeQuery("from Video where TO_CHAR(UPLOAD_DATE, 'DD') like ? ORDER BY click DESC",[day], [max: 6])
+		def videoListTopMonth = Video.executeQuery("from Video where TO_CHAR(UPLOAD_DATE, 'MM') like ? ORDER BY click DESC",[month], [max: 6])
+		[videoListTopDay: videoListTopDay,
+		videoListTopMonth: videoListTopMonth] 
+		
+		respond videoListTopMonth, model:[videoInstanceCount: videoListTopMonth.size() + videoListTopDay.size(),
+			videoListTopDay: videoListTopDay,
+			videoListTopMonth: videoListTopMonth]
+	}
+	
+	def category(){
+		def category = params.id
+		String day = new Date().format("dd");
+		String month = new Date().format("MM");
+		def videoListAllTimeTop = Video.executeQuery("from Video where category = ? ORDER BY click DESC",[category], [max: 3])
+		def videoListRecent = Video.executeQuery("from Video where category = ? ORDER BY UPLOAD_DATE DESC",[category])
+		[videoListAllTimeTop: videoListAllTimeTop,
+		videoListRecent: videoListRecent]
+		
+		respond videoListAllTimeTop, model:[videoInstanceCount: videoListAllTimeTop.size() + videoListRecent.size(),
+			videoListAllTimeTop: videoListAllTimeTop,
+			videoListRecent: videoListRecent]
 	}
 	
 	private currentVideoComments(Video videoInstance) {

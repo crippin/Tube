@@ -27,10 +27,16 @@ class Video {
 		this.lenght = Float.parseFloat(duration)
 	
 	}
+	String toString(){
+		return title
+	}
+	
 	
 	static hasMany = [comment: Message, playlist: Playlist]
 	
 	static belongsTo = [Person, Playlist]
+	
+	
 	
     static constraints = {
     }

@@ -33,6 +33,27 @@ class PersonController {
         respond new Person(params)
     }
 
+	
+	def halloffame(){
+		
+		def vUser
+		int vNum = 0
+		def cUser
+		def cNum = 0
+		for(Person i : Person.list()){
+			if(vNum < i.video.size()){
+				vNum = i.video.size()
+				vUser = i
+			}
+		}
+		for(Person i : Person.list()){
+			if(cNum < i.comment.size()){
+				cNum = i.comment.size()
+				cUser = i
+			}
+		}
+		respond vUser,model:[vUser: vUser, vNum: vNum,cUser: cUser,cNum:cNum]
+	}
     @Transactional
     def save(Person personInstance) {
         if (personInstance == null) {

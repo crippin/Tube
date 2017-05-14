@@ -18,7 +18,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	content="My Play Responsive web template, Bootstrap Web Templates, Flat Web Templates, Andriod Compatible web template, 
 		Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyErricsson, Motorola web design" />
 <script type="application/x-javascript">
+	
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+
 </script>
 <!-- bootstrap -->
 <asset:stylesheet src="bootstrap.min.css" />
@@ -101,34 +103,25 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 		</div>
 		<div class="drop-navigation drop-navigation">
 			<ul class="nav nav-sidebar">
-				<li class="active"><a href="${createLink(uri: '/')}"
-					class="home-icon"><span class="glyphicon glyphicon-home"
-						aria-hidden="true"></span>Home</a></li>
-				<li><a href="shows.html" class="user-icon"><span
-						class="glyphicon glyphicon-home glyphicon-blackboard"
-						aria-hidden="true"></span>TV Shows</a></li>
-				<li><a href="#" class="menu0"><span
-						class="glyphicon glyphicon-home glyphicon-blackboard " aria-hidden="true"></span>Playlists<span
-						class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
-				<ul class="cl-effect-3">
-					<li><a href="${createLink(uri: '/playlist/create')}">Create new Playlist</a></li>
-					<li><a href="${createLink(uri: '/playlist/')}">List All</a></li>
-				</ul>
-				<!-- script-for-menu -->
-				<script>
-					$("li a.menu0").click(function() {
-						$("ul.cl-effect-3").slideToggle(300, function() {
-							// Animation complete.
-						});
-					});
-				</script>
+				<li><a href="${createLink(uri: '/')}" class="home-icon"><span
+						class="glyphicon glyphicon-home" aria-hidden="true"></span>Home</a></li>
+				<li><a href="${createLink(uri: '/video/toplist')}"> <span
+						class="glyphicon glyphicon-film glyphicon-hourglass"
+						aria-hidden="true"></span>Toplist
+				</a></li>
+				<li><a href="${createLink(uri: '/video/toplist')}"> <span
+						class="glyphicon glyphicon-film glyphicon-king"
+						aria-hidden="true"></span>Hall of Fame
+				</a></li>
+
 				<li><a href="#" class="menu1"><span
-						class="glyphicon glyphicon-film" aria-hidden="true"></span>Categories<span
+						class="glyphicon glyphicon-home glyphicon-blackboard "
+						aria-hidden="true"></span>Playlists<span
 						class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 				<ul class="cl-effect-2">
-					<li><a href="movies.html">English</a></li>
-					<li><a href="movies.html">Chinese</a></li>
-					<li><a href="movies.html">Hindi</a></li>
+					<li><a href="${createLink(uri: '/playlist/create')}">Create
+							new Playlist</a></li>
+					<li><a href="${createLink(uri: '/playlist/')}">List All</a></li>
 				</ul>
 				<!-- script-for-menu -->
 				<script>
@@ -139,13 +132,40 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					});
 				</script>
 				<li><a href="#" class="menu"><span
-						class="glyphicon glyphicon-film glyphicon-king" aria-hidden="true"></span>Sports<span
+						class="glyphicon glyphicon-film glyphicon-film" aria-hidden="true"></span>Categories<span
 						class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a></li>
 				<ul class="cl-effect-1">
-					<li><a href="sports.html">Football</a></li>
-					<li><a href="sports.html">Cricket</a></li>
-					<li><a href="sports.html">Tennis</a></li>
-					<li><a href="sports.html">Shattil</a></li>
+					<li><a
+						href="${createLink(uri: '/video/category/Autos & Vehicles')}">Autos
+							& Vehicles</a></li>
+					<li><a href="${createLink(uri: '/video/category/Comedy')}">Comedy</a></li>
+					<li><a href="${createLink(uri: '/video/category/Education')}">Education</a></li>
+					<li><a
+						href="${createLink(uri: '/video/category/Film & Animation')}">Film
+							& Animation</a></li>
+					<li><a href="${createLink(uri: '/video/category/Gaming')}">Gaming</a></li>
+					<li><a
+						href="${createLink(uri: '/video/category/Howto & Style')}">Howto
+							& Style</a></li>
+					<li><a
+						href="${createLink(uri: '/video/category/News & Politics')}">News
+							& Politics</a></li>
+					<li><a
+						href="${createLink(uri: '/video/category/Nonprofits & Activism')}">Nonprofits
+							& Activism</a></li>
+					<li><a
+						href="${createLink(uri: '/video/category/People & Blogs')}">People
+							& Blogs</a></li>
+					<li><a
+						href="${createLink(uri: '/video/category/Pets & Animals')}">Pets
+							& Animals</a></li>
+					<li><a
+						href="${createLink(uri: '/video/category/Science & Technology')}">Science
+							& Technology</a></li>
+					<li><a href="${createLink(uri: '/video/category/Sports')}">Sports</a></li>
+					<li><a
+						href="${createLink(uri: '/video/category/Travel & Events')}">Travel
+							& Events</a></li>
 				</ul>
 				<!-- script-for-menu -->
 				<script>
@@ -155,35 +175,6 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						});
 					});
 				</script>
-				<li><a href="movies.html" class="song-icon"><span
-						class="glyphicon glyphicon-music" aria-hidden="true"></span>Songs</a></li>
-				<li><a href="news.html" class="news-icon"><span
-						class="glyphicon glyphicon-envelope" aria-hidden="true"></span>News</a></li>
-			</ul>
-			<!-- script-for-menu -->
-			<script>
-				$(".top-navigation").click(function() {
-					$(".drop-navigation").slideToggle(300, function() {
-						// Animation complete.
-					});
-				});
-			</script>
-			<div class="side-bottom">
-				<div class="side-bottom-icons">
-					<ul class="nav2">
-						<li><a href="#" class="facebook"> </a></li>
-						<li><a href="#" class="facebook twitter"> </a></li>
-						<li><a href="#" class="facebook chrome"> </a></li>
-						<li><a href="#" class="facebook dribbble"> </a></li>
-					</ul>
-				</div>
-				<div class="copyright">
-					<p>
-						Copyright © 2015 My Play. All Rights Reserved | Design by <a
-							href="http://w3layouts.com/">W3layouts</a>
-					</p>
-				</div>
-			</div>
 		</div>
 	</div>
 	<g:layoutBody />
