@@ -15,11 +15,7 @@
 		<g:each in="${videoListAllTimeTop}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+									<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png" alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -46,11 +42,7 @@
 		<g:each in="${videoListRecent}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+									<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png" alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -75,9 +67,6 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<div class="main-grids">
 			<div class="top-grids">
-				<div class="pagination">
-					<g:paginate total="${videoInstanceCount ?: 0}" />
-				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>

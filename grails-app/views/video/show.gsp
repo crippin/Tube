@@ -120,11 +120,9 @@
 						<div class="single-right-grids">
 							<div class="col-md-4 single-right-grid-left">
 								<g:link action="show" id="${video?.id}" class="title">
-									<video width="100" height="40">
-										<source id="thumb"
-											src="${resource(dir: 'videoFiles')}/${video?.id}.mp4#t=2"
-											type="video/mp4">
-									</video>
+									<img
+										src="${resource(dir: 'videoFiles')}/${video?.id}.png"
+										alt="${video?.title}" height="80" width="120">
 								</g:link>
 							</div>
 							<div class="col-md-8 single-right-grid-right">

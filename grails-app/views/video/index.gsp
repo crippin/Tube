@@ -12,15 +12,11 @@
 		<div class="recommended-info">
 			<h3>Recent Videos:</h3>
 		</div>
-		<g:each in="${recent.take(3)}" status="i"
-			var="videoInstance">
+		<g:each in="${recent.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -47,11 +43,8 @@
 		<g:each in="${comedyList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -78,11 +71,8 @@
 		<g:each in="${autoList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -109,11 +99,8 @@
 		<g:each in="${educationList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -140,11 +127,8 @@
 		<g:each in="${filmList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -171,11 +155,8 @@
 		<g:each in="${gameList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -202,11 +183,8 @@
 		<g:each in="${howToList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -233,11 +211,8 @@
 		<g:each in="${newsList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -264,11 +239,8 @@
 		<g:each in="${nonprofitsList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -295,11 +267,8 @@
 		<g:each in="${petList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -326,11 +295,8 @@
 		<g:each in="${blogList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -357,11 +323,8 @@
 		<g:each in="${scienceList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -388,11 +351,8 @@
 		<g:each in="${sportsList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>
@@ -419,11 +379,8 @@
 		<g:each in="${travelList.take(3)}" status="i" var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
-					<video width="280" height="130">
-						<source id="thumb"
-							src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-							type="video/mp4">
-					</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png"
+						alt="${videoInstance?.title}" height="220" width="320">
 				</div>
 				<div class="resent-grid-info recommended-grid-info">
 					<h3>

@@ -62,11 +62,7 @@
 							<g:each in="${personInstance.video}" var="v">
 								<li class="list-group-item"><g:link controller="video"
 										action="show" id="${v.id}">
-										<video width="280" height="130">
-											<source id="thumb"
-												src="${resource(dir: 'videoFiles')}/${v?.id}.mp4#t=2"
-												type="video/mp4">
-										</video>
+										<img src="${resource(dir: 'videoFiles')}/${v?.id}.png" alt="${v.title}" height="220" width="420">
 										<p>${v.title?.encodeAsHTML()}</p>
 										
 									</g:link></li>

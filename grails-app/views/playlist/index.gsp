@@ -32,11 +32,7 @@
 			<g:each in="${playlistInstance?.video}" var="videoInstance">
 				<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 					<div class="resent-grid-img recommended-grid-img">
-						<video width="280" height="220">
-							<source id="thumb"
-								src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4#t=2"
-								type="video/mp4">
-						</video>
+					<img src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.png" alt="${videoInstance?.title}" height="220" width="320">
 					</div>
 					<div class="resent-grid-info recommended-grid-info">
 						<h3>
