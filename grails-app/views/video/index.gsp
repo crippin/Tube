@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="layout" content="main" >
+<meta name="layout" content="main">
 <g:set var="entityName"
 	value="${message(code: 'video.label', default: 'Video')}" />
 <title><g:message code="default.list.label" args="[entityName]" /></title>
@@ -447,11 +447,7 @@
 	</div>
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<div class="main-grids">
-			<div class="top-grids">
-				<div class="pagination">
-					<g:paginate total="${videoInstanceCount ?: 0}" />
-				</div>
-			</div>
+			<div class="top-grids"></div>
 			<div class="clearfix"></div>
 		</div>
 	</div>
