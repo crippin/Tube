@@ -68,37 +68,22 @@
 							</table>
 
 							<script type="text/javascript">
-								$('#demoform')
-										.submit(
-												function(e) {
-
+								$('#demoform').submit(function(e) {
 													e.preventDefault();
 													var file = $('#file').val()
 													var jForm = new FormData();
-													jForm
-															.append(
-																	"file",
-																	$('#file')
-																			.get(
-																					0).files[0]);
-													jForm.append("title", $(
-															'#title').val());
-													jForm.append("description",
-															$('#description')
-																	.val());
-													jForm.append("category", $(
-															'#category').val());
+													jForm.append("file", $('#file').get(0).files[0]);
+													jForm.append("title", $('#title').val());
+													jForm.append("description",$('#description').val());
+													jForm.append("category", $('#category').val());
 
 													var duration = 0; //store duration
 
-													duration = document
-															.getElementById("audio").duration;
+													duration = document.getElementById("audio").duration;
 
-													jForm.append("duration",
-															duration);
+													jForm.append("duration", duration);
 
-													$
-															.ajax({
+													$.ajax({
 																url : "uploadFile",
 																type : "POST",
 																data : jForm,
@@ -106,22 +91,35 @@
 																contentType : false,
 																cache : false,
 																processData : false,
-																success : function(
-																		data) {
-																	console
-																			.log(data);
+																success : function(data) {
+																	console.log(data);
 																	window.location.href = "/Tube/video/show/"
 																			+ data;
 																}
 															});
 												})
+												 var snapImage = function() {
+												        var canvas = document.createElement('canvas');
+												        canvas.width = video.videoWidth;
+												        canvas.height = video.videoHeight;
+												        canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
+												        var image = canvas.toDataURL();
+												        var success = image.length > 100000;
+												        if (success) {
+												          var img = document.createElement('img');
+												          img.src = image;
+												          document.getElementsByTagName('div')[0].appendChild(img);
+												          URL.revokeObjectURL(url);
+												        }
+												        return success;
+												 };
 							</script>
 						</form>
 					</sec:ifLoggedIn>
 					<sec:ifNotLoggedIn>
 						<div class="alert alert-danger">
-								<strong>You must sign in to upload video!</strong>
-							</div>
+							<strong>You must sign in to upload video!</strong>
+						</div>
 					</sec:ifNotLoggedIn>
 				</div>
 			</div>

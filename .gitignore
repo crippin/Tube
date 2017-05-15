@@ -3,3 +3,4 @@ target/stacktrace.log
 *.mp4
 .classpath
 target/stacktrace.log
+*.png
