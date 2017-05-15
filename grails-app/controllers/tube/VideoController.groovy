@@ -17,6 +17,7 @@ class VideoController {
 	
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
+		def recent = Video.getAll().reverse()
 		def comedyList = getCategoryList("Comedy")
 		def autoList = getCategoryList("Autos & Vehicles")
 		def educationList = getCategoryList("Education")
@@ -31,12 +32,12 @@ class VideoController {
 		def sportsList = getCategoryList("Sports")
 		def travelList = getCategoryList("Travel & Events")
 		
-		[comedyList: comedyList, autoList: autoList, educationList: educationList,filmList: filmList,
+		[recent:recent, comedyList: comedyList, autoList: autoList, educationList: educationList,filmList: filmList,
 			gameList:gameList,howToList: howToList,newsList: newsList,nonprofitsList:nonprofitsList,
 			petList: petList,blogList: blogList,scienceList: scienceList,sportsList: sportsList,
 			travelList: travelList]
 		
-        respond Video.list(params).reverse(), model:[videoInstanceCount: Video.count(),comedyList: comedyList, autoList: autoList, educationList: educationList,filmList: filmList,
+        respond Video.list(params), model:[videoInstanceCount: Video.count(),recent:recent, comedyList: comedyList, autoList: autoList, educationList: educationList,filmList: filmList,
 			gameList:gameList,howToList: howToList,newsList: newsList,nonprofitsList:nonprofitsList,
 			petList: petList,blogList: blogList,scienceList: scienceList,sportsList: sportsList,
 			travelList: travelList]
@@ -67,7 +68,6 @@ class VideoController {
 	
 	def comment(Video videoInstance){
 		def per = springSecurityService.currentUser
-		println per.id
 		def message = new Message(message: params.message,person: per, video: videoInstance).save failOnError: true
 		def commentList = currentVideoComments(videoInstance)
 		redirect(uri:"/video/show/" + videoInstance.id)

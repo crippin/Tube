@@ -21,9 +21,10 @@
 					</div>
 					<div class="video-grid">
 						<video id="my-video" class="video-js" controls preload="auto"
-							width="520" height="300"
-							data-setup="{}">
-							<source src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4" type='video/mp4'>
+							width="520" height="300" data-setup="{}">
+							<source
+								src="${resource(dir: 'videoFiles')}/${videoInstance?.id}.mp4"
+								type='video/mp4'>
 							<p class="vjs-theme-colors-blue">
 								To view this video please enable JavaScript, and consider
 								upgrading to a web browser that <a
@@ -69,26 +70,38 @@
 				</div>
 				<div class="all-comments">
 					<div class="all-comments-info">
-						<a href="#">All Comments (${commentList.size})
+						<a>All Comments (${commentList.size})
 						</a>
-						<g:form url="[resource:videoInstance, action:'comment']">
-							<fieldset class="form">
-								<div class="box">
-									<form>
-										<textarea id="message" name="message"></textarea>
-										<input type="submit" value="Send">
-										<div class="clearfix"></div>
-									</form>
-								</div>
-							</fieldset>
-						</g:form>
+						<sec:ifLoggedIn>
+							<g:form url="[resource:videoInstance, action:'comment']">
+								<fieldset class="form">
+									<div class="box">
+										<form>
+											<textarea id="message" name="message"></textarea>
+											<input type="submit" value="Send">
+											<div class="clearfix"></div>
+										</form>
+									</div>
+								</fieldset>
+							</g:form>
+						</sec:ifLoggedIn>
+						<sec:ifNotLoggedIn>
+							<div class="alert alert-danger">
+								<strong>You must sign in to send comment!</strong>
+							</div>
+						</sec:ifNotLoggedIn>
 					</div>
 					<div class="media-grids">
 						<g:each in="${commentList}" var="comment">
-							<div class="media">
-								<h5>
-									${comment?.person.username}
-								</h5>
+							<div class="published">
+								<h4>
+									<g:link controller="person" action="show"
+										id="${comment?.person.id}">
+										<asset:image src="comment.png" alt="" />
+										${comment?.person.username}
+									</g:link>
+
+								</h4>
 								<div id="comment${comment?.id}" class="media-body">
 									<p>
 										${comment?.message}
@@ -119,8 +132,7 @@
 									${video?.title }
 								</g:link>
 								<p class="author">
-									<a class="author">
-										${video?.person.username }
+									<a class="author"> ${video?.person.username }
 									</a>
 								</p>
 								<p class="views">

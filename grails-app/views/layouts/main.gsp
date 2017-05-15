@@ -52,7 +52,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="${createLink(uri: '/')}"><h1>
-						<asset:image src="logo.png" alt="" />
+						<asset:image src="mtube.png" alt="" />
 					</h1></a>
 			</div>
 			<div id="navbar" class="navbar-collapse collapse">

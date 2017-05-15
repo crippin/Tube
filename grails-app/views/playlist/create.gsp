@@ -12,6 +12,7 @@
 		<div class="show-top-grids">
 			<div class="col-sm-8 single-left">
 				<div class="song">
+				<sec:ifLoggedIn>
 					<div id="create-playlist" class="content scaffold-create"
 						role="main">
 						<h1>
@@ -41,6 +42,12 @@
 							</fieldset>
 						</g:form>
 					</div>
+					</sec:ifLoggedIn>
+					<sec:ifNotLoggedIn>
+							<div class="alert alert-danger">
+								<strong>You must sign in to create playlist!</strong>
+							</div>
+						</sec:ifNotLoggedIn>
 				</div>
 			</div>
 			<div class="clearfix"></div>

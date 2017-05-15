@@ -5,102 +5,129 @@
 <meta name="layout" content="main" />
 
 <script type="text/javascript">
-var objectUrl;    
+	var objectUrl;
 
-$(document).ready(function(){    
-	$("#file").change(function(e){ 
-		console.log("asd");   
-	var file = e.currentTarget.files[0];    
-	objectUrl = URL.createObjectURL(file);    
-	document.getElementById('audio').setAttribute("src", objectUrl);    
-	});})   
+	$(document).ready(function() {
+		$("#file").change(function(e) {
+			console.log("asd");
+			var file = e.currentTarget.files[0];
+			objectUrl = URL.createObjectURL(file);
+			document.getElementById('audio').setAttribute("src", objectUrl);
+		});
+	})
 </script>
 </head>
 <body>
 
-		<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-			<div class="show-top-grids">
-				<div class="col-sm-8 single-left">
-			<audio id="audio"></audio>
+	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+		<div class="show-top-grids">
+			<div class="col-sm-8 single-left">
+				<audio id="audio"></audio>
 				<div id="box">
-				<form enctype="multipart/form-data" id="demoform" method="POST"
-					name="demoform">
-					<table>
-							<tr>
-								<td colspan="2"><input accept=".mp4" class="upload"
-									id="file" name="file" type="file"></td>
+					<sec:ifLoggedIn>
+						<form enctype="multipart/form-data" id="demoform" method="POST"
+							name="demoform">
+							<table>
 								<tr>
-						<td><div class="uploadLabel">Title:</div></td>
-							<td><input class="upload" id="title" name="title" type="text"></td>
-							</tr>
-							<tr>
-							<td><div class="uploadLabel">Category:</div></td>
-							<td>
-								<select name="category" class="upload" id="category">
-									<option value="Autos & Vehicles">Autos & Vehicles</option>
-									<option value="Comedy">Comedy</option>
-									<option value="Education">Education</option>
-									<option value="Film & Animation">Film & Animation</option>
-									<option value="Gaming">Gaming</option>
-									<option value="Howto & Style">Howto & Style</option>
-									<option value="News & Politics">News & Politics</option>
-									<option value="Nonprofits & Activism">Nonprofits & Activism</option>
-									<option value="People & Blogs">People & Blogs</option>
-									<option value="Pets & Animals">Pets & Animals</option>
-									<option value="Science & Technology">Science & Technology</option>
-									<option value="Sports">Sports</option>
-									<option value="Travel & Events">Travel & Events</option>
-								</select>
-							</td>
-							</tr>
-							<tr>
-							<td><div class="uploadLabel">Description:</div></td>
-							<td>
-							<textarea class="upload" id="description" name="description" required></textarea></td>
-							</tr>
-							<tr>
-							<td colspan="2" id="uploadButtonTd"><input class="upload" id="uploadButton" type="submit" value="Upload"></td>
-						</tr>
-					</table>
-					 	
-					<script type="text/javascript">
-					$('#demoform').submit(function(e) {
+									<td colspan="2"><input accept=".mp4" class="upload"
+										id="file" name="file" type="file"></td>
+								<tr>
+									<td><div class="uploadLabel">Title:</div></td>
+									<td><input class="upload" id="title" name="title"
+										type="text"></td>
+								</tr>
+								<tr>
+									<td><div class="uploadLabel">Category:</div></td>
+									<td><select name="category" class="upload" id="category">
+											<option value="Autos & Vehicles">Autos & Vehicles</option>
+											<option value="Comedy">Comedy</option>
+											<option value="Education">Education</option>
+											<option value="Film & Animation">Film & Animation</option>
+											<option value="Gaming">Gaming</option>
+											<option value="Howto & Style">Howto & Style</option>
+											<option value="News & Politics">News & Politics</option>
+											<option value="Nonprofits & Activism">Nonprofits &
+												Activism</option>
+											<option value="People & Blogs">People & Blogs</option>
+											<option value="Pets & Animals">Pets & Animals</option>
+											<option value="Science & Technology">Science &
+												Technology</option>
+											<option value="Sports">Sports</option>
+											<option value="Travel & Events">Travel & Events</option>
+									</select></td>
+								</tr>
+								<tr>
+									<td><div class="uploadLabel">Description:</div></td>
+									<td><textarea class="upload" id="description"
+											name="description" required></textarea></td>
+								</tr>
+								<tr>
+									<td colspan="2" id="uploadButtonTd"><input class="upload"
+										id="uploadButton" type="submit" value="Upload"></td>
+								</tr>
+							</table>
 
-						e.preventDefault();
-						var file = $('#file').val()
-						var jForm = new FormData();
-						jForm.append("file", $('#file').get(0).files[0]);
-						jForm.append("title", $('#title').val());
-						jForm.append("description", $('#description').val());
-						jForm.append("category", $('#category').val());
-						
-						
-						var duration =0;  //store duration
-						
-						duration = document.getElementById("audio").duration;
-						
-						jForm.append("duration", duration);
-						
-						$.ajax({
-							url : "uploadFile",
-							type : "POST",
-							data : jForm,
-							mimeType : "multipart/form-data",
-							contentType : false,
-							cache : false,
-							processData : false,
-							success : function(data) {
-								console.log(data);
-								window.location.href ="/Tube/video/show/" + data;
-							}
-						});
-					})</script>
-				</form>
+							<script type="text/javascript">
+								$('#demoform')
+										.submit(
+												function(e) {
+
+													e.preventDefault();
+													var file = $('#file').val()
+													var jForm = new FormData();
+													jForm
+															.append(
+																	"file",
+																	$('#file')
+																			.get(
+																					0).files[0]);
+													jForm.append("title", $(
+															'#title').val());
+													jForm.append("description",
+															$('#description')
+																	.val());
+													jForm.append("category", $(
+															'#category').val());
+
+													var duration = 0; //store duration
+
+													duration = document
+															.getElementById("audio").duration;
+
+													jForm.append("duration",
+															duration);
+
+													$
+															.ajax({
+																url : "uploadFile",
+																type : "POST",
+																data : jForm,
+																mimeType : "multipart/form-data",
+																contentType : false,
+																cache : false,
+																processData : false,
+																success : function(
+																		data) {
+																	console
+																			.log(data);
+																	window.location.href = "/Tube/video/show/"
+																			+ data;
+																}
+															});
+												})
+							</script>
+						</form>
+					</sec:ifLoggedIn>
+					<sec:ifNotLoggedIn>
+						<div class="alert alert-danger">
+								<strong>You must sign in to upload video!</strong>
+							</div>
+					</sec:ifNotLoggedIn>
 				</div>
-				</div>
-				<div class="clearfix"> </div>
-				</div>
-				<div class="main-grids">
+			</div>
+			<div class="clearfix"></div>
+		</div>
+		<div class="main-grids">
 			<div class="top-grids">
 </body>
 </html>

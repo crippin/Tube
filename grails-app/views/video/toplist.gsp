@@ -75,9 +75,6 @@
 	<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 		<div class="main-grids">
 			<div class="top-grids">
-				<div class="pagination">
-					<g:paginate total="${videoInstanceCount ?: 0}" />
-				</div>
 			</div>
 			<div class="clearfix"></div>
 		</div>

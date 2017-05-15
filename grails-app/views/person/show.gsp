@@ -90,6 +90,7 @@
 							</fieldset>
 						</g:form>
 					</g:if>
+					</div>
 				</div>
 			</div>
 		</div>

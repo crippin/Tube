@@ -12,7 +12,7 @@
 		<div class="recommended-info">
 			<h3>Recent Videos:</h3>
 		</div>
-		<g:each in="${videoInstanceList.take(3)}" status="i"
+		<g:each in="${recent.take(3)}" status="i"
 			var="videoInstance">
 			<div class="col-md-4 resent-grid recommended-grid slider-top-grids">
 				<div class="resent-grid-img recommended-grid-img">
